@@ -13,3 +13,12 @@ import "../stylesheets/application"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+//teste
+$(function(){
+  'use strict'
+
+  document.querySelector('#navbarSideCollapse').addEventListener('click', () => {
+    document.querySelector('.offcanvas-collapse').classList.toggle('open')
+  })
+})
