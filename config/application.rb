@@ -18,5 +18,16 @@ module Openjobs
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Configuraçãoes do RSpec
+    config.generators do |g|
+      g.test_framework :rspec
+      g.fixtures false
+      g.view_specs false
+      g.helper_specs false
+      g.routing_specs false
+      g.request_specs false
+      g.controller_specs false
+    end
   end
 end
