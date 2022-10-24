@@ -8,7 +8,7 @@
         %li.nav-item
           %a.nav-link.active{"aria-current" => "page", href: root_path} Inicio
         %li.nav-item
-          %a.nav-link.active{"aria-current" => "page", href: root_path} Minha Empresa
+          = link_to('Minha Empresa', dynamic_url_company, class: 'nav-link')
         - unless user_signed_in?
           %li.nav-item
             = link_to('Login/Cadastro', new_user_session_path, class: 'nav-link')
