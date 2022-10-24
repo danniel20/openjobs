@@ -47,6 +47,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'awesome_print'
+  gem "better_errors"
 
   gem "letter_opener"
   gem 'rspec-rails', '~> 6.0.0'
