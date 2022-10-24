@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :companies, only: [:new, :edit, :create, :upadte]
+  resources :companies, only: [:new, :edit, :create, :update]
   resources :positions
   resources :applicants, only: [:index, :new, :create]
 
