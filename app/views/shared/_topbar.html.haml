@@ -8,13 +8,9 @@
         %li.nav-item
           %a.nav-link.active{"aria-current" => "page", href: root_path} Inicio
         %li.nav-item
-          %a.nav-link{href: "#"} Login/Cadastro
-        -# %li.nav-item.dropdown
-        -#   %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", href: "#"} Settings
-        -#   %ul.dropdown-menu
-        -#     %li
-        -#       %a.dropdown-item{href: "#"} Action
-        -#     %li
-        -#       %a.dropdown-item{href: "#"} Another action
-        -#     %li
-        -#       %a.dropdown-item{href: "#"} Something else here
+          = link_to('Login/Cadastro', new_user_session_path, class: 'nav-link')
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", href: "#"} Settings
+          %ul.dropdown-menu
+            %li
+              = link_to('Sair', destroy_user_session_path, method: :delete, class: 'dropdown-item')
