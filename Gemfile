@@ -72,7 +72,10 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers', '~> 5.0', require: false
   gem 'database_cleaner-active_record'
+  gem "shoulda-matchers", "~> 5.2"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
