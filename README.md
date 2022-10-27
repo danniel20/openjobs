@@ -1,24 +1,56 @@
-# README
+# Openjobs
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<table>
+  <tr>
+    <td>Ruby version</td>
+    <td>
+      2.7.2
+    </td>
+  </tr>
+  <tr>
+    <td>Rails version</td>
+    <td>
+      6.1.x
+    </td>
+  </tr>
+  <tr>
+    <td>Database</td>
+    <td>
+      PostgreSQL
+    </td>
+  </tr>
+</table>
 
-Things you may want to cover:
+## Settings to run the project
 
-* Ruby version
+```bash
+# clone the project
+git clone https://github.com/danniel20/openjobs.git
 
-* System dependencies
+# enter the cloned directory
+cd openjobs
 
-* Configuration
+# install Ruby on Rails dependencies
+bundle install --without production
 
-* Database creation
+# create the development and test databases
+rails db:create
 
-* Database initialization
+# create the tables
+rails db:migrate
 
-* How to run the test suite
+# run the project
+rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+The backend is available at `http://localhost:3000`.
 
-* Deployment instructions
+## Tests
 
-* ...
+![Tests](https://github.com/danniel20/openjobs/actions/workflows/ci.yml/badge.svg)
+
+To run the tests:
+
+```bash
+rspec
+```

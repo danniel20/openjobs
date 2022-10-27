@@ -1,5 +1,11 @@
 name: CI
-on: push
+
+  on:
+    push:
+      branches: [main]
+    pull_request:
+      branches: [main]
+
 jobs:
 
 #   rubocop:
@@ -8,22 +14,23 @@ jobs:
 #     steps:
 #       - name: Checkout code
 #         uses: actions/checkout@v1
-        
+
 #       - name: Setup Ruby
 #         uses: ruby/setup-ruby@v1
 #         with:
-#           bundler-cache: true
-          
+#           bundler-cache: true  # runs 'bundle install' and caches installed gems automatically
+
 #       - name: Analyze code
 #         run: bundle exec rubocop
-  
+
   rspec:
     name: RSpec
 #     needs: rubocop
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     env:
       RAILS_ENV: test
       DATABASE_URL: postgres://postgres:example@localhost:5432/db_test
+
     services:
       postgres:
         image: postgres:latest
@@ -32,34 +39,39 @@ jobs:
           POSTGRES_DB: db_test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: example
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
-        
+        uses: actions/checkout@v3
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true
-          
-      - name: Install postgres client dependecies
+          bundler-cache: true  # runs 'bundle install' and caches installed gems automatically
+
+      - name: Install postgres dependecies
         run: sudo apt install libpq-dev
-      
+
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: 16.15.0
-          
+
       - name: Yarn package cache
         uses: actions/cache@v2
         with:
           path: ./node_modules
           key: ${{ runner.os }}-yarn-v1-${{ hashFiles('./yarn.lock') }}
-          
+
       - name: Create database
         run: bundle exec rails db:create db:migrate
-          
+
       - name: Run tests
-        run: bundle exec rspec spec
-        
-      
+        run: bundle exec rspec --format progress
+
+
