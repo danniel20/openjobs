@@ -73,6 +73,8 @@ group :test do
   gem 'webdrivers', '~> 5.0', require: false
   gem 'database_cleaner-active_record'
   gem "shoulda-matchers", "~> 5.2"
+
+  gem 'simplecov', require: false, group: :test
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

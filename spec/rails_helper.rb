@@ -33,6 +33,16 @@ end
 Capybara.server = :puma, { Silent: true }
 Selenium::WebDriver.logger.ignore(:browser_options)
 
+require 'simplecov'
+SimpleCov.start do
+  add_group 'Config', 'config'
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Libs', 'lib'
+  add_group 'Models', 'app/models'
+  # add_group 'Serializers', 'app/serializers'
+  add_group 'Specs', 'spec'
+end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
