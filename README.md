@@ -34,13 +34,13 @@ cd openjobs
 bundle install --without production
 
 # create the development and test databases
-rails db:create
+bundle exec rails db:create
 
 # create the tables
-rails db:migrate
+bundle exec rails db:migrate
 
 # run the project
-rails s
+bundle exec rails s
 ```
 
 The backend is available at `http://localhost:3000`.
@@ -52,5 +52,5 @@ The backend is available at `http://localhost:3000`.
 To run the tests:
 
 ```bash
-rspec
+bin/rspec
 ```
