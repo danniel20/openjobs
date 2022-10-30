@@ -72,3 +72,16 @@ footer p {
   margin: 0px;
   line-height: 30px;
 }
+
+.public-position {
+  border: 1px solid #fff;
+  border-radius: 3px;
+}
+
+.public-position:hover {
+  background-color: #f5f7fb;
+
+  a {
+    color: #000 !important;
+  }
+}

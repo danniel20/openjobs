@@ -19,3 +19,5 @@
             %ul.dropdown-menu
               %li
                 = link_to('Sair', destroy_user_session_path, method: :delete, class: 'dropdown-item')
+          %li.nav-item.public-position
+            = link_to('Publicar Vaga', new_position_path, class: 'nav-link')
