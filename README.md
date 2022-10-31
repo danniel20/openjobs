@@ -52,5 +52,5 @@ The backend is available at `http://localhost:3000`.
 To run the tests:
 
 ```bash
-bin/rspec
+bundle exec rspec
 ```

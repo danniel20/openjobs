@@ -6,6 +6,14 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+if Rails.env == 'production'
+  Dotenv.load(
+    # File.join(root, ".env.local"),
+    File.join("/etc/envfiles", ".env.#{Rails.env}")
+    File.join(root, ".env")
+  )
+end
+
 module Openjobs
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
