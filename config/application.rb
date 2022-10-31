@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 if Rails.env == 'production'
   Dotenv.load(
     # File.join(root, ".env.local"),
-    File.join("/etc/envfiles", ".env.#{Rails.env}")
+    File.join("/etc/envfiles", ".env.#{Rails.env}"),
     File.join(root, ".env")
   )
 end
