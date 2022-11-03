@@ -8,6 +8,8 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
+import "trix"
+import "@rails/actiontext"
 import "../stylesheets/application"
 
 Rails.start()
@@ -21,4 +23,15 @@ $(function(){
   document.querySelector('#navbarSideCollapse').addEventListener('click', () => {
     document.querySelector('.offcanvas-collapse').classList.toggle('open')
   })
+});
+
+//Contador de caracteres
+$(function() {
+  $('#current').text($('.count-textarea').val().length);
+
+  $('.count-textarea').on('keyup', function(){
+    console.log('teste');
+    var characterCount = $(this).val().length;
+    $('#current').text(characterCount);
+  });
 });
