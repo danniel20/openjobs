@@ -35,9 +35,10 @@ gem 'devise'
 gem "haml-rails", "~> 2.0"
 gem "html2haml"
 
-# gem 'kaminari'
-# gem 'kaminari-bootstrap'
-# gem 'ransack'
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
+
+gem 'ransack'
 # gem 'select2-rails'
 
 group :development, :test do
@@ -47,7 +48,9 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'awesome_print'
-  gem "better_errors"
+  gem 'better_errors'
+  gem 'faker'
+  gem "tty-spinner"
 
   gem "letter_opener"
   gem 'rspec-rails', '~> 6.0.0'

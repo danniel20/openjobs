@@ -25,13 +25,27 @@ $(function(){
   });
 });
 
-//Contador de caracteres
 $(function() {
-  $('#current').text($('.count-textarea').val().length);
 
-  $('.count-textarea').on('keyup', function(){
-    console.log('teste');
-    var characterCount = $(this).val().length;
-    $('#current').text(characterCount);
+  //Contador de caracteres
+  if($('.count-textarea').length > 0){
+    $('#current').text($('.count-textarea').val().length);
+
+    $('.count-textarea').on('keyup', function(){
+      console.log('teste');
+      var characterCount = $(this).val().length;
+      $('#current').text(characterCount);
+    });
+  }
+
+  //Copia texto da url
+  $('.copy-url').on('click', function(e){
+    e.preventDefault();
+
+    var url = $(this).data('clipboard-text');
+    navigator.clipboard.writeText(url);
+    alert('URL copiada com sucesso.')
   });
+
 });
+

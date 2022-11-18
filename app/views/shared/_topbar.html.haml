@@ -10,6 +10,8 @@
         - if user_signed_in?
           %li.nav-item
             = link_to('Minha Empresa', dynamic_url_company, class: 'nav-link')
+          %li.nav-item
+            = link_to('Minhas Vagas', positions_url, class: 'nav-link')
         - unless user_signed_in?
           %li.nav-item
             = link_to('Login/Cadastro', new_user_session_path, class: 'nav-link')
